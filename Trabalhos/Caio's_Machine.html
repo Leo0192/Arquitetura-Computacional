@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+
+<body style="background-color: #222; color: white; margin:0; text-align: center;">
+
+  <section style="width: 100vw ; background-color: rgb(56, 61, 61); padding: 10px;">
+    <i>
+      <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin: 0">
+        Caio's Machine</h1>
+    </i>
+  </section>
+  <section style="width: 100vw; border-bottom: solid 1px;border-top: solid 1px; padding: 10px;">
+    <p style="font-size: 20px; font-family: 'Courier New', Courier, monospace;">Insira o valor desejado</p>
+    <input style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" type="number"
+      id="ipt_decimal" placeholder="Ex:10" />
+    <select
+      style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+      id="ipt_calculadora">
+      <option value="1">Binario</option>
+      <option value="2">Octal</option>
+      <option value="3">Hexadecimal</option>
+    </select>
+    <br />
+    <br />
+    <button style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:16px;"
+      onclick="calcular()">Converter</button>
+  </section>
+  <br>
+  <section style="border-bottom: solid 1px ; padding: 10px;">
+    <p style="font-size: 20px; font-family: 'Courier New', Courier, monospace;">Realizar operações matematicas</p>
+    <input style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" type="number"
+      id="ipt_operacoes" placeholder="Primeiro operador" />
+    <input style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" type="number"
+      id="ipt_operacoes2" placeholder="Segundo operador" />
+    <select
+      style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
+      id="ipt_calcular">
+      <option value="1">Binario</option>
+      <option value="2">Octal</option>
+      <option value="3">Hexadecimal</option>
+    </select>
+    <br />
+    <br />
+    <button style="font-family: 'Courier New', Courier, monospace; font-size:16px; background-color: rgb(43, 255, 0); padding: 5px ; border-radius: 10px; cursor:pointer;" onclick="somar()">Somar</button>
+    <button style="font-family: 'Courier New', Courier, monospace; font-size:16px; background-color: #ff0000; padding: 5px; border-radius: 10px; cursor:pointer;"
+      onclick="subtrair()">Subtrair</button>
+    <button style="font-family: 'Courier New', Courier, monospace; font-size:16px; background-color: #0004ff; padding: 5px; border-radius: 10px; cursor:pointer;"
+      onclick="multiplicar()">Multiplicar</button>
+    <button style="font-family: 'Courier New', Courier, monospace; font-size:16px; background-color: #ff7b00; padding: 5px; border-radius: 10px; cursor:pointer;" onclick="dividir()">Dividir</button>
+  </section>
+  <br>
+  <div style="background-color: #333; font-family: 'Courier New', Courier, monospace; font-size: 18px;"
+    id="div_converter"></div>
+    <br>
+    <br>
+</body>
+
+</html>
+<script>
+  function calcular() {
+    var decimal = Number(ipt_decimal.value);
+    var selecionado = ipt_calculadora.value;
+
+    if (selecionado == 1) {
+      div_converter.innerHTML = `binario: ${decimal.toString(2)}`;
+    } else if (selecionado == 2) {
+      div_converter.innerHTML = `octal: ${decimal.toString(8)}`;
+    } else if (selecionado == 3) {
+      div_converter.innerHTML = `hexadecimal: ${decimal.toString(16)}`;
+    }
+  }
+  function somar() {
+    var num1 = Number(ipt_operacoes.value);
+    var num2 = Number(ipt_operacoes2.value);
+    var selecionado = ipt_calcular.value;
+
+    if (selecionado == 1) {
+      div_converter.innerHTML = `Binario: ${(
+        Number(num1) + Number(num2)
+      ).toString(2)}`;
+    } else if (selecionado == 2) {
+      div_converter.innerHTML = `Octal: ${(
+        Number(num1) + Number(num2)
+      ).toString(8)}`;
+    } else if (selecionado == 3) {
+      div_converter.innerHTML = `Hexadecimal: ${(
+        Number(num1) + Number(num2)
+      ).toString(16)}`;
+    }
+  }
+  function subtrair() {
+    var num1 = Number(ipt_operacoes.value);
+    var num2 = Number(ipt_operacoes2.value);
+    var selecionado = ipt_calcular.value;
+
+    if (selecionado == 1) {
+      div_converter.innerHTML = `Binario: ${(num1 - num2).toString(2)}`;
+    } else if (selecionado == 2) {
+      div_converter.innerHTML = `Octal: ${(num1 - num2).toString(8)}`;
+    } else if (selecionado == 3) {
+      div_converter.innerHTML = `Hexadecimal: ${(num1 - num2).toString(16)}`;
+    }
+  }
+  function multiplicar() {
+    var num1 = Number(ipt_operacoes.value);
+    var num2 = Number(ipt_operacoes2.value);
+    var selecionado = ipt_calcular.value;
+
+    if (selecionado == 1) {
+      div_converter.innerHTML = `Binario: ${(num1 * num2).toString(2)}`;
+    } else if (selecionado == 2) {
+      div_converter.innerHTML = `Octal: ${(num1 * num2).toString(8)}`;
+    } else if (selecionado == 3) {
+      div_converter.innerHTML = `Hexadecimal: ${(num1 * num2).toString(16)}`;
+    }
+  }
+  function dividir() {
+    var num1 = Number(ipt_operacoes.value);
+    var num2 = Number(ipt_operacoes2.value);
+    var selecionado = ipt_calcular.value;
+
+    if (selecionado == 1) {
+      div_converter.innerHTML = `Binario: ${(num1 / num2).toString(2)}`;
+    } else if (selecionado == 2) {
+      div_converter.innerHTML = `Octal: ${(num1 / num2).toString(8)}`;
+    } else if (selecionado == 3) {
+      div_converter.innerHTML = `Hexadecimal: ${(num1 / num2).toString(16)}`;
+    }
+  }
+</script>
